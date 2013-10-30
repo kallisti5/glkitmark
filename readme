@@ -1,8 +1,11 @@
-requires development libarays
-	sdl		libsdl1.2-dev
-	gl      libgl1-mesa-dev
-	glu     libglu1-mesa-dev
-    glew    libglew1.5-dev
+GLMark for Haiku
+
+
+requires development libraries:
+	libsdl	1.2>
+	libgl
+	libglu
+	libglew
 
 compile with
 	make
