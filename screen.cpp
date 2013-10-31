@@ -38,7 +38,7 @@ int Screen::init()
     }
 
     if(mFullScreen)
-    mFlags = SDL_OPENGL | SDL_FULLSCREEN;
+        mFlags |= SDL_FULLSCREEN;
     
     mInfo = SDL_GetVideoInfo();
 
@@ -54,16 +54,9 @@ int Screen::init()
         return 0;
     }
     
-    SDL_WM_SetCaption("GLMark 08", NULL);
+    SDL_WM_SetCaption("GLKitMark", NULL);
     
-    GLenum err = glewInit();
-    if(GLEW_OK != err)
-    {
-        fprintf(stderr, "[ Fail ] - Error: %s\n", glewGetErrorString(err));
-        return 0;
-    }
-
-    if(!GLEW_ARB_vertex_buffer_object)
+    if(!GL_ARB_vertex_buffer_object)
     {
         fprintf(stderr, "[ Fail ] - VBO objects are not supported\n");
         return 0;

@@ -1,3 +1,9 @@
+GLKitMark 0.1.0
+========================
+- Drop GLEW requirement
+- Modify to function on Haiku
+- Clean up text
+
 GLMark 0.5.2
 ========================
 - current tests

@@ -1,2 +1,5 @@
 all:
-	g++ *.cpp -o glmark -Wall -lSDL -lGL -lGLU -lGLEW
+	g++ *.cpp -o glkitmark -Wall -lSDL -lGL -lGLU
+
+clean:
+	rm -f glkitmark

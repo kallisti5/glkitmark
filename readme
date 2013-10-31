@@ -1,14 +1,24 @@
-GLMark for Haiku
+GLKitMark
+================================
 
+A simple OpenGL benchmark for the Haiku OpenGL kit.
 
-requires development libraries:
-	libsdl	1.2>
-	libgl
-	libglu
-	libglew
+Originally based on [GLMark](http://sourceforge.net/projects/glmark/)
 
-compile with
+License
+-------
+Released under the GNU GPL v2 license
+
+Required development libraries
+------------------------------
+* libsdl < 2.0
+* libgl
+* libglu
+
+Compile with
+------------
 	make
 
-execute with
-	./glmark
+Execute with
+------------
+	./glkitmark

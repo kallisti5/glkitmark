@@ -7,6 +7,9 @@
 #include <stdio.h>
 #include <math.h>
 
+#include <GL/gl.h>
+
+
 class Texel
 {
 public:

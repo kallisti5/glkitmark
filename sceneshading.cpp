@@ -105,13 +105,13 @@ void SceneShading::update()
         {
         case 0:
             printf("Shading\n");
-            printf("    Smooth shader model      FPS: %u\n", mAverageFPS[mCurrentPart]);
+            printf("    Smooth shader model           FPS: %u\n", mAverageFPS[mCurrentPart]);
             break;
         case 1:
-            printf("    GLSL per vertex lighting FPS: %u\n", mAverageFPS[mCurrentPart]);
+            printf("    GLSL per vertex lighting      FPS: %u\n", mAverageFPS[mCurrentPart]);
             break;
         case 2:
-            printf("    GLSL per pixel lighting  FPS: %u\n", mAverageFPS[mCurrentPart]);
+            printf("    GLSL per pixel lighting       FPS: %u\n", mAverageFPS[mCurrentPart]);
             break;
         }
         mScore += mAverageFPS[mCurrentPart];

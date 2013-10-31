@@ -15,17 +15,21 @@ int main(int argc, char *argv[])
     SceneShading sceneshading;
  
     printf("===================================================\n");
-    printf("    GLMark 08\n");
+    printf("    GLKitMark\n");
     printf("===================================================\n");
     
     printf("Enter screen width:  ");
     scanf("%d", &screen.mWidth);
+    printf("\n");
     printf("Enter screen height: ");
     scanf("%d", &screen.mHeight);
+    printf("\n");
     printf("Enter screen bpp:    ");
     scanf("%d", &screen.mBpp);
+    printf("\n");
     printf("Enter '1' for fullscreen '0' for windowed: ");
     scanf("%d", &screen.mFullScreen);
+    printf("\n");
     
 
     printf("===================================================\n");
@@ -99,7 +103,7 @@ int main(int argc, char *argv[])
     unsigned score = scenebuild.mScore + scenetexture.mScore + sceneshading.mScore;
 
     printf("===================================================\n");
-    printf("Your GLMark08 Score is %u  ^_^\n", score);
+    printf("Your GLKitMark Score is %u\n", score);
     printf("===================================================\n");
 
     return 0;
