@@ -5,10 +5,8 @@ Screen::Screen()
     mWidth = 800;
     mHeight = 600;
     mBpp = 24;
-    mFlags = SDL_OPENGL;
+    mFlags = SDL_WINDOW_OPENGL;
     mFullScreen = false;
-
-    mInfo = SDL_GetVideoInfo();
 }
 
 Screen::~Screen()
@@ -17,13 +15,13 @@ Screen::~Screen()
 }
 
 Screen::Screen(int pWidth, int pHeight, int pBpp, int pFlags)
+    :
+    mWidth(pWidth),
+    mHeight(pHeight),
+    mBpp(pBpp),
+    mFlags(pFlags)
 {
-    mWidth = pWidth;
-    mHeight = pHeight;
-    mBpp = pBpp;
-    mFlags = SDL_OPENGL | pFlags;
-
-    mInfo = SDL_GetVideoInfo();
+    mFlags |= SDL_WINDOW_OPENGL;
 }
 
 int Screen::init()
@@ -38,9 +36,13 @@ int Screen::init()
     }
 
     if(mFullScreen)
-        mFlags |= SDL_FULLSCREEN;
-    
-    mInfo = SDL_GetVideoInfo();
+        mFlags |= SDL_WINDOW_FULLSCREEN;
+
+    mWindow = SDL_CreateWindow("GLKitMark", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+        mWidth, mHeight, mFlags);
+    mRenderer = SDL_CreateRenderer(mWindow, -1, 0);
+
+    //SDL_GetRendererInfo(mRenderer, mInfo);
 
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 5);
     SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 5);
@@ -48,16 +50,7 @@ int Screen::init()
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
-    if(SDL_SetVideoMode(mWidth, mHeight, mBpp, mFlags) == 0)
-    {
-        fprintf(stderr, "[ Fail ] - Video mode set failed: %s\n", SDL_GetError());
-        return 0;
-    }
-    
-    SDL_WM_SetCaption("GLKitMark", NULL);
-    
-    if(!GL_ARB_vertex_buffer_object)
-    {
+    if(!GL_ARB_vertex_buffer_object) {
         fprintf(stderr, "[ Fail ] - VBO objects are not supported\n");
         return 0;
     }
@@ -95,7 +88,7 @@ void Screen::clear()
 
 void Screen::update()
 {
-    SDL_GL_SwapBuffers();
+    SDL_GL_SwapWindow(mWindow);
 }
 
 void Screen::print_info()

@@ -8,14 +8,16 @@
 class Screen
 {
 public:
-    const SDL_VideoInfo *mInfo;
     
     int mWidth;
     int mHeight;
     int mBpp;
     int mFlags;
     int mFullScreen;
-//    SDL_Surface *mScreen;
+
+    SDL_Renderer* mRenderer;
+    SDL_RendererInfo* mInfo;
+    SDL_Window *mWindow;
 
     Screen();
     ~Screen();

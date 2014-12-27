@@ -11,7 +11,7 @@ Released under the GNU GPL v2 license
 
 Required development libraries
 ------------------------------
-* libsdl < 2.0
+* libsdl > 2.0
 * libgl
 * libglu
 
