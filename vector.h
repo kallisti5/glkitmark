@@ -8,13 +8,13 @@
 
 class Vector3f
 {
+public:
+
     union
     {    
         struct { GLfloat x; GLfloat y; GLfloat z; };
         GLfloat v[3];
     };
-
-public:
 
     Vector3f();
     Vector3f(GLfloat pX, GLfloat pY, GLfloat pZ);
